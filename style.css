@@ -1,0 +1,24 @@
+a[href*='instagram.com']:before {
+  content: "\f16d";
+  font-family: 'FontAwesome';
+}
+
+a[href*='vk.com']:before {
+  content: "\f189";
+  font-family: 'FontAwesome';
+}
+
+a[href*='facebook.com']:before {
+  content: "\f082";
+  font-family: 'FontAwesome';
+}
+
+a[href*='linkedin.com']:before {
+  content: "\f0e1";
+  font-family: 'FontAwesome';
+}
+
+a[href*='youtube.com']:before {
+  content: "\f167";
+  font-family: 'FontAwesome';
+}
