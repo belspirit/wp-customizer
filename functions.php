@@ -1,13 +1,13 @@
 <?php
 
 
-function lift_customizer_init( $wp_customize ) {
+function my_customizer_init( $wp_customize ) {
 
-    $lift_transport = 'postMessage'; // описание этой переменной чуть ниже
+    $my_transport = 'postMessage'; // описание этой переменной чуть ниже
 
     // Добавляем собственную секцию настроек
     $wp_customize->add_section(
-        'lift_socials', // id секции, должен прописываться во всех настройках, которые в неё попадают
+        'my_socials', // id секции, должен прописываться во всех настройках, которые в неё попадают
         array(
             'title'       => 'Социальные сети',
             'priority'    => 200, // приоритет расположения относительно других секций
@@ -20,13 +20,13 @@ function lift_customizer_init( $wp_customize ) {
         'instagram', // id
         array(
             'type'      => 'theme_mod',
-            'transport' => $lift_transport
+            'transport' => $my_transport
         )
     );
     $wp_customize->add_control(
         'instagram', // id
         array(
-            'section'  => 'lift_socials', // id секции
+            'section'  => 'my_socials', // id секции
             'label'    => 'Instagram',
             'type'     => 'text' // текстовое поле
         )
@@ -34,16 +34,16 @@ function lift_customizer_init( $wp_customize ) {
 
     // добавление ссылки на Вконтакте
     $wp_customize->add_setting(
-        'lift_vkontakte', // id
+        'vkontakte', // id
         array(
             'type'      => 'theme_mod',
-            'transport' => $lift_transport
+            'transport' => $my_transport
         )
     );
     $wp_customize->add_control(
-        'lift_vkontakte', // id
+        'vkontakte', // id
         array(
-            'section'  => 'lift_socials', // id секции
+            'section'  => 'my_socials', // id секции
             'label'    => 'Вконтакте',
             'type'     => 'text' // текстовое поле
         )
@@ -55,13 +55,13 @@ function lift_customizer_init( $wp_customize ) {
         array(
             //'sanitize_callback'  => 'lift_sanitize_copyright', // функция, обрабатывающая значение поля при сохранении
             'type'      => 'theme_mod',
-            'transport' => $lift_transport
+            'transport' => $my_transport
         )
     );
     $wp_customize->add_control(
         'facebook', // id
         array(
-            'section'  => 'lift_socials', // id секции
+            'section'  => 'my_socials', // id секции
             'label'    => 'Facebook',
             'type'     => 'text' // текстовое поле
         )
@@ -73,13 +73,13 @@ function lift_customizer_init( $wp_customize ) {
         array(
             //'sanitize_callback'  => 'lift_sanitize_copyright', // функция, обрабатывающая значение поля при сохранении
             'type'      => 'theme_mod',
-            'transport' => $lift_transport
+            'transport' => $my_transport
         )
     );
     $wp_customize->add_control(
         'linkedin', // id
         array(
-            'section'  => 'lift_socials', // id секции
+            'section'  => 'my_socials', // id секции
             'label'    => 'Linkedin',
             'type'     => 'text' // текстовое поле
         )
@@ -91,13 +91,13 @@ function lift_customizer_init( $wp_customize ) {
         array(
             //'sanitize_callback'  => 'lift_sanitize_copyright', // функция, обрабатывающая значение поля при сохранении
             'type'      => 'theme_mod',
-            'transport' => $lift_transport
+            'transport' => $my_transport
         )
     );
     $wp_customize->add_control(
         'youtube', // id
         array(
-            'section'  => 'lift_socials', // id секции
+            'section'  => 'my_socials', // id секции
             'label'    => 'Youtube',
             'type'     => 'text' // текстовое поле
         )
@@ -105,11 +105,11 @@ function lift_customizer_init( $wp_customize ) {
 
 }
 
-add_action( 'customize_register', 'lift_customizer_init' );
+add_action( 'customize_register', 'my_customizer_init' );
 
 /*
  * Функция обработки текстовых значений, перед их сохранением в базу
  */
-function lift_sanitize_copyright( $value ) {
+function my_sanitize_copyright( $value ) {
     return strip_tags( stripslashes( $value ) ); // обрезаем слеши и HTML-теги
 }
