@@ -8,7 +8,7 @@
         <?
     }
 
-    $vk = get_theme_mod('lift_vkontakte');
+    $vk = get_theme_mod('vkontakte');
     if (!empty($vk)) {
         ?><a href="<?= $vk ?>" target="_blank"></a>
         <?
