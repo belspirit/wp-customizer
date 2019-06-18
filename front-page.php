@@ -12,7 +12,7 @@ $_monthsList = array(".01" => "января", ".02" => "февраля",
     ".07" => "июля", ".08" => "августа", ".09" => "сентября",
     ".10" => "октября", ".11" => "ноября", ".12" => "декабря");
 
-//chenge int - number of month to its name:
+//change int - number of month to its name:
 $_mD = date(".m"); //for the change
 $date = str_replace($_mD, " ".$_monthsList[$_mD], $date);
 
