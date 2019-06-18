@@ -102,6 +102,34 @@ function my_customizer_init( $wp_customize ) {
             'type'     => 'text' // текстовое поле
         )
     );
+    
+    
+        // Добавляем секцию настроек для акций и скидок
+    $wp_customize->add_section(
+        'my_discount', // id секции, должен прописываться во всех настройках, которые в неё попадают
+        array(
+            'title'       => 'Акции и скидки',
+            'priority'    => 200, // приоритет расположения относительно других секций
+            'description' => 'Акции и скидки' // описание не обязательное
+        )
+    );
+    
+    // добавление поля окончания срока скидки
+    $wp_customize->add_setting(
+        'date', // id
+        array(
+            'type'      => 'theme_mod',
+            'transport' => $my_transport
+        )
+    );
+    $wp_customize->add_control(
+        'date', // id
+        array(
+            'section'  => 'my_discount', // id секции
+            'label'    => 'Дата окончания действия акции',
+            'type'     => 'date'
+        )
+    );
 
 }
 
